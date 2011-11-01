@@ -9,7 +9,10 @@ compinit
 setopt auto_cd
 
 # use vim as an editor
-export EDITOR=vim
+#export EDITOR=vim
+
+# i like nano
+export EDITOR=nano
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -17,9 +20,9 @@ if [ -e "$HOME/.aliases" ]; then
 fi
 
 # vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-bindkey jj vi-cmd-mode
+#bindkey -v
+#bindkey "^F" vi-cmd-mode
+#bindkey jj vi-cmd-mode
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
