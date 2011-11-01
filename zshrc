@@ -63,3 +63,8 @@ setopt CORRECT CORRECT_ALL
 
 # Enable extended globbing
 setopt EXTENDED_GLOB
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=/Users/jmiller/.homebrew/bin:/usr/local/mysql/bin:/opt/subversion/bin:$PATH
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
