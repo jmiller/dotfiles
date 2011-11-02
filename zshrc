@@ -62,8 +62,29 @@ setopt AUTOCD
 setopt AUTOPUSHD PUSHDMINUS PUSHDSILENT PUSHDTOHOME
 setopt cdablevars
 
-# Try to correct command line spelling
+# Try to correct command line spelling.
 setopt CORRECT CORRECT_ALL
 
 # Enable extended globbing
 setopt EXTENDED_GLOB
+
+# subverison stuff
+# from http://blog.crazyfraggle.com/2009/10/subversion-helper-functions-in-zsh.html
+svnstatus () {
+ templist=`svn status $*`
+ echo `echo $templist | grep '^?' | wc -l` unversioned files/directories
+ echo $templist | grep -v '^?'
+}
+
+svnup () {
+ svn log --stop-on-copy -r HEAD:BASE $1
+ svn up $1
+}
+
+#finds all files ending with certain extensions
+svnwhiteliststatus () {
+	templist=`svn status $*`
+	findfiles='png$\|jpg$\|pdf$\|gif$\|php$\|rb$|\erb$\|html$\|css$\|rhtml$\|js$\|inc$\|swf$\|dwt$\|sql$'
+	#echo `echo $findfiles`
+	echo $templist | grep $findfiles
+}
