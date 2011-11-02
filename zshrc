@@ -11,7 +11,7 @@ setopt auto_cd
 # use vim as an editor
 #export EDITOR=vim
 
-# i like nano
+# i like nano for a basic text editor
 export EDITOR=nano
 
 # aliases
@@ -23,6 +23,10 @@ fi
 #bindkey -v
 #bindkey "^F" vi-cmd-mode
 #bindkey jj vi-cmd-mode
+
+# fix forward delete key
+bindkey    "^[[3~"          delete-char
+bindkey    "^[3;5~"         delete-char
 
 # use incremental search
 bindkey "^R" history-incremental-search-backward
