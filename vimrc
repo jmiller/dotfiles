@@ -10,8 +10,10 @@ set laststatus=2  " Always display the status line
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
+  syntax enable 
 endif
+
+set background=dark
 
 filetype plugin indent on
 
@@ -49,9 +51,9 @@ if executable("ack")
 endif
 
 " Color scheme
-colorscheme vividchalk
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+colorscheme solarized
+" highlight NonText guibg=#060606
+" highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
 set number

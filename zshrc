@@ -9,10 +9,7 @@ compinit
 setopt auto_cd
 
 # use vim as an editor
-#export EDITOR=vim
-
-# i like nano for a basic text editor
-export EDITOR=nano
+export EDITOR=vim
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
@@ -20,9 +17,9 @@ if [ -e "$HOME/.aliases" ]; then
 fi
 
 # vi mode
-#bindkey -v
-#bindkey "^F" vi-cmd-mode
-#bindkey jj vi-cmd-mode
+bindkey -v
+bindkey "^F" vi-cmd-mode
+bindkey jj vi-cmd-mode
 
 # fix forward delete key
 bindkey    "^[[3~"          delete-char
@@ -96,3 +93,9 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/Users/jmiller/.homebrew/bin:/usr/local/mysql/bin:/opt/subversion/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
+	
+# source .zlogin.  not being read property by iterm.
+# perhaps related to the fact that i can not set user shell preference on 
+# system level
+source .zlogin
+alias tmux="TERM=screen-256color-bce tmux"
