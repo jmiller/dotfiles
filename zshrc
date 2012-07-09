@@ -68,6 +68,11 @@ setopt CORRECT CORRECT_ALL
 # Enable extended globbing
 setopt EXTENDED_GLOB
 
+# flush cache
+flushcache () {
+ echo `dscacheutil -flushcache`
+}
+
 # subverison stuff
 # from http://blog.crazyfraggle.com/2009/10/subversion-helper-functions-in-zsh.html
 svnstatus () {
@@ -88,7 +93,7 @@ svnwhiteliststatus () {
 	#echo `echo $findfiles`
 	echo $templist | grep $findfiles
 }
-
+#export NODE_PATH="/Users/jmiller/.homebrew/bin/node"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=/Users/jmiller/.homebrew/bin:/usr/local/mysql/bin:/opt/subversion/bin:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

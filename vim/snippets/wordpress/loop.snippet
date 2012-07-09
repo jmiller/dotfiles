@@ -1,0 +1,7 @@
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	${1:<!-- post -->}
+<?php endwhile; ?>
+	${2:<!-- post navigation -->}
+<?php else: ?>
+	${0:<!-- no posts found -->}
+<?php endif; ?>
