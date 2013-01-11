@@ -19,7 +19,7 @@ fi
 # vi mode
 bindkey -v
 bindkey "^F" vi-cmd-mode
-bindkey jj vi-cmd-mode
+#bindkey jj vi-cmd-mode
 
 # fix forward delete key
 bindkey    "^[[3~"          delete-char
@@ -48,7 +48,7 @@ export PS1='[${SSH_CONNECTION+"%n@%m:"}%~] '
 setopt histignoredups
 
 # keep TONS of history
-export HISTSIZE=4096
+export HISTSIZE=4096 SAVEHIST=4096 HISTFILE=~/.zhistory
 
 # look for ey config in project dirs
 export EYRC=./.eyrc
@@ -73,6 +73,10 @@ flushcache () {
  echo `dscacheutil -flushcache`
 }
 
+# quick access to edit hosts file
+ehosts () {
+  sudo vim /etc/hosts
+}
 # subverison stuff
 # from http://blog.crazyfraggle.com/2009/10/subversion-helper-functions-in-zsh.html
 svnstatus () {
@@ -95,7 +99,7 @@ svnwhiteliststatus () {
 }
 #export NODE_PATH="/Users/jmiller/.homebrew/bin/node"
 export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=/Users/jmiller/.homebrew/bin:/usr/local/mysql/bin:/opt/subversion/bin:$PATH
+export PATH=/Users/jmiller/.homebrew/bin:/usr/local/mysql/bin:/opt/subversion/bin:/Users/jmiller/Applications/android-sdk-macosx/tools:/Users/jmiller/Applications/android-sdk-macosx/platform-tools:$PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 
 	
@@ -103,4 +107,7 @@ export PATH=/Users/jmiller/.homebrew/bin:/usr/local/mysql/bin:/opt/subversion/bi
 # perhaps related to the fact that i can not set user shell preference on 
 # system level
 source .zlogin
+source .zprofile #environment vars that are not in source control
 alias tmux="TERM=screen-256color-bce tmux"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

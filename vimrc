@@ -30,6 +30,10 @@ augroup vimrcEx
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+  " set syntax highlighting for less files
+  autocmd BufNewFile,BufRead *.less set filetype=less
+
 augroup END
 
 " Softtabs, 2 spaces
@@ -68,6 +72,9 @@ set complete=.,w,t
 
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
+" don't close buffer if open in multiple windows
+let bclose_multiple = 0
 
 " Cucumber navigation commands
 autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
