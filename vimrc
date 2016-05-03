@@ -27,6 +27,8 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
 endif
 
+set background=dark
+
 filetype plugin indent on
 
 augroup vimrcEx
@@ -48,6 +50,8 @@ augroup vimrcEx
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
+
+augroup END
 
 " Softtabs, 2 spaces
 set tabstop=2
